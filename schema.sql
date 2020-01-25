@@ -1,42 +1,21 @@
-DROP TABLE IF EXISTS life_expectancy;
-DROP TABLE IF EXISTS world_happiness;
+DROP TABLE IF EXISTS degree_salaray;
+DROP TABLE IF EXISTS trade_jobs_info;
 
-CREATE TABLE life_expectancy(
-    Country VARCHAR PRIMARY KEY,
-    Year INT,
-    Status VARCHAR,
-    Life_Expectancy FLOAT,
-    Adult_Mortality INT,
-    infant_Deaths INT,
-    Alcohol FLOAT,
-    Percentage_Exp FLOAT,
-    HepatitisB INT,
-    Measles INT,
-    BMI FLOAT, 
-    Under_Five_Deaths INT,
-    Polio INT, 
-    Total_Exp FLOAT,
-    Diphtheria INT,
-    HIV_AIDS FLOAT,
-    GDP FLOAT,
-    Population INT ,
-    Thinness_1to19_Years FLOAT, 
-    Thinness_5to9_Years FLOAT,
-    Income_Composition_Of_Resources FLOAT,
-    Schooling FLOAT
+CREATE TABLE degree_salaray(
+    undergraduate_major VARCHAR PRIMARY KEY,
+    starting_median_salary FLOAT,
+    mid_career_median_salary FLOAT,
+    percent_change_from_starting_to_mid_career_salary FLOAT,
+    mid_career_10th_percentile_salary FLOAT,
+    mid_career_25th_percentile_salary FLOAT,
+    mid_career_75th_percentile_salary FLOAT,
+    mid_career_90th_percentile_salary FLOAT
 );
 
-CREATE TABLE world_happiness(
-    Country VARCHAR PRIMARY KEY,
-    Region VARCHAR,
-    Happiness_Rank INT,
-    Happiness_Score FLOAT,
-    Standard_Error FLOAT,
-    GDP_per_Capita FLOAT, 
-    Family FLOAT, 
-    Life_Expectancy FLOAT, 
-    Freedom FLOAT, 
-    Government_Corruption FLOAT, 
-    Generosity FLOAT, 
-    Dystopia_Residual FLOAT
+CREATE TABLE trade_jobs_info(
+    job VARCHAR PRIMARY KEY,
+    experience VARCHAR,
+    avg_salary INT,
+    education VARCHAR
 );
+
