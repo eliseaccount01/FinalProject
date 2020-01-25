@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS life_expectancy;
 DROP TABLE IF EXISTS world_happiness;
 
-
 CREATE TABLE life_expectancy(
     Country VARCHAR PRIMARY KEY,
     Year INT,
@@ -18,7 +17,7 @@ CREATE TABLE life_expectancy(
     Polio INT, 
     Total_Exp FLOAT,
     Diphtheria INT,
-    HIV/AIDS FLOAT,
+    HIV_AIDS FLOAT,
     GDP FLOAT,
     Population INT ,
     Thinness_1to19_Years FLOAT, 
@@ -39,5 +38,5 @@ CREATE TABLE world_happiness(
     Freedom FLOAT, 
     Government_Corruption FLOAT, 
     Generosity FLOAT, 
-    Dystopia_Residual FLOAT, 
+    Dystopia_Residual FLOAT
 );
