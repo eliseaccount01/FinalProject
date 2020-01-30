@@ -1,0 +1,81 @@
+CREATE TABLE state_occupation_data (
+    area TEXT,
+    st TEXT,
+    state TEXT,
+    occ_code TEXT,
+    occ_title TEXT,
+    occ_group TEXT,
+    tot_emp TEXT,
+    emp_prse TEXT,
+    jobs_1000 TEXT,
+    loc_q TEXT,
+    h_mean TEXT,
+    a_mean TEXT,
+    mean_prse TEXT,
+    h_pct10 TEXT,
+    h_pct25 TEXT,
+    h_median TEXT,
+    h_pct75 TEXT,
+    h_pct90 TEXT,
+    a_pct10 TEXT,
+    a_pct25 TEXT,
+    a_median TEXT,
+    a_pct75 TEXT,
+    a_pct90 TEXT,
+    annual TEXT,
+    hourly TEXT
+);
+
+CREATE TABLE employment_projections (
+    occupation_title TEXT,
+    empty TEXT,
+    median_annual_wage_2018 TEXT,
+    typical_entry_level_education TEXT,
+    education_code TEXT,
+    work_experience_in_a_related_occupation TEXT,
+    typical_on_the_job_training TEXT
+);
+
+CREATE TABLE public_four_year_in_state_tuition_and_fees (
+    state TEXT,
+    year_2004_05 TEXT,
+    year_2005_06 TEXT,
+    year_2006_07 TEXT,
+    year_2007_08 TEXT,
+    year_2008_09 TEXT,
+    year_2009_10 TEXT,
+    year_2010_11 TEXT,
+    year_2011_12 TEXT,
+    year_2012_13 TEXT,
+    year_2013_14 TEXT,
+    year_2014_15 TEXT,
+    year_2015_16 TEXT,
+    year_2016_17 TEXT,
+    year_2017_18 TEXT,
+    year_2018_19 TEXT,
+    year_2019_20 TEXT,
+    percentage_change_over_1_year TEXT,
+    percentage_change_over_5_year TEXT
+);
+
+CREATE TABLE public_two_year_in_district_tuition_and_fees (
+    state TEXT,
+    year_2004_05 TEXT,
+    year_2005_06 TEXT,
+    year_2006_07 TEXT,
+    year_2007_08 TEXT,
+    year_2008_09 TEXT,
+    year_2009_10 TEXT,
+    year_2010_11 TEXT,
+    year_2011_12 TEXT,
+    year_2012_13 TEXT,
+    year_2013_14 TEXT,
+    year_2014_15 TEXT,
+    year_2015_16 TEXT,
+    year_2016_17 TEXT,
+    year_2017_18 TEXT,
+    year_2018_19 TEXT,
+    year_2019_20 TEXT,
+    percentage_change_over_1_year TEXT,
+    percentage_change_over_5_year TEXT
+);
