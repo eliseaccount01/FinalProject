@@ -1,7 +1,7 @@
 import psycopg2
 
 
-class db_util():
+class db_util:
     def __init__(self):
         self.state_pay = ''
         self.four_yr_data = ''
@@ -17,7 +17,7 @@ class db_util():
         cur = conn.cursor()
 
         # Query the database and obtain data as Python objects
-        cur.execute("SELECT state, annual_mean_pay FROM state_occupation_data_clean;")
+        cur.execute("SELECT state, occupation, annual_mean_pay FROM state_occupation_data_clean;")
         self.state_pay = cur.fetchall()
         cur.execute("SELECT state, year_2019_20 FROM public_four_year_in_state_tuition_and_fees_clean;")
         self.four_yr_data = cur.fetchall()
