@@ -1,9 +1,9 @@
-d3.json("/api/v1.0/statedatabase").then(data =>{
-  console.log("works");
+d3.json("/state_data").then(data =>{
+  console.log("state works");
   console.log(data)
 });
 
-d3.json("/api/v1.0/drugdatabase").then(data =>{
-  console.log("works");
+d3.json("/occ_data").then(data =>{
+  console.log("occ works");
   console.log(data)
 });
