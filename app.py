@@ -1,7 +1,7 @@
 # Import Dependencies
 import pandas as pd
 from db_util import db_util as db
-from flask import Flask, jsonify, render_template, send_from_directory
+from flask import Flask, jsonify, render_template, send_from_directory, request
 import os
 
 print(db.fetch_data)
@@ -10,13 +10,16 @@ db.fetch_data(db)
 
 # Four year avg tuition
 four_tuition = list(db.four_yr_data)
+four_tuition
 # Two year avg tuition
 two_tuition = db.two_yr_data
+two_tuition
 # Occupation and education data
 occupation_data = db.occupation_data
-
+occupation_data
 # Occupation salary per state
 state_pay = db.state_occ_pay
+state_pay
 
 app = Flask(__name__, static_folder='static')
 
@@ -52,8 +55,29 @@ def occ_data():
     occupations = []
     for occ in occupation_data:
         occupations.append(occ[0])
-
-    print(occupations)
     return jsonify(occupations)
+
+@app.route("/api/select", methods=['POST'])
+def results():
+    if request.method == 'POST':
+        sel = {}
+        sel['state'] = int(request.json['state'])
+        sel['occupation'] = int(request.json['occupation'])
+
+        four_state = four_tuition[sel['state']]
+        occ_ed_sal = occupation_data[sel['occupation']]
+        state_name = four_state[0]
+        tuition = four_state[1]
+        occ = {
+        'title' : occ_ed_sal[0],
+        'ed' : occ_ed_sal[1],
+        'sal' : occ_ed_sal[2]
+        }
+        
+
+
+        return jsonify(sel)
+    return render_template('index.html')
+
 
 app.run()
