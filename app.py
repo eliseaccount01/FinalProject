@@ -10,13 +10,19 @@ db.fetch_data(db)
 
 # Four year avg tuition
 four_tuition = list(db.four_yr_data)
-four_tuition
+four_df = pd.DataFrame(four_tuition)
+four_df = four_df.rename(columns={0:"State", 1:"Four Year Tuition"})
+four_df = four_df.dropna()
+four_df.head()
+
+
 # Two year avg tuition
 two_tuition = db.two_yr_data
 two_tuition
 # Occupation and education data
 occupation_data = db.occupation_data
 occupation_data
+
 # Occupation salary per state
 state_pay = db.state_occ_pay
 state_pay
@@ -45,9 +51,7 @@ def home():
 
 @app.route('/state_data')
 def state_data():
-    states = []
-    for state in two_tuition:
-        states.append(state[0])
+    states = list(four_df["State"])
     return jsonify(states)
 
 @app.route('/occ_data')
@@ -60,23 +64,20 @@ def occ_data():
 @app.route("/api/select", methods=['POST'])
 def results():
     if request.method == 'POST':
-        sel = {}
-        sel['state'] = int(request.json['state'])
-        sel['occupation'] = int(request.json['occupation'])
+        state = int(request.json['state'])
+        occ = int(request.json['occupation'])
 
-        four_state = four_tuition[sel['state']]
-        occ_ed_sal = occupation_data[sel['occupation']]
-        state_name = four_state[0]
-        tuition = four_state[1]
-        occ = {
-        'title' : occ_ed_sal[0],
-        'ed' : occ_ed_sal[1],
-        'sal' : occ_ed_sal[2]
+        four_state = four_tuition[state]
+        occ_ed_sal = occupation_data[occ]
+
+        sel = {
+        "State" : four_state[0],
+        "Tuition" : four_state[1],
+        "Occ Title" : occ_ed_sal[0],
+        "Occ Ed" : occ_ed_sal[1],
+        "Occ Sal" : occ_ed_sal[2],
         }
         
-
-
-        return jsonify(sel)
     return render_template('index.html')
 
 
